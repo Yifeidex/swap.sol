@@ -1,0 +1,11 @@
+// SPDX-License-Identifier: MIT
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+// 固定总量代币合约
+contract ERC20FixedSupply is ERC20 {
+    // 构造函数
+    constructor() ERC20("lollipop", "lollipop") {
+        uint256 totalSupply = 10000000 * (10 ** decimals()); // 发行总量，考虑小数位
+        _mint(0x85EB6Dab43ea14B17c31dFA521A9C5B2029d8e8a, totalSupply); // 将所有代币铸造给指定创建者
+    }
+}
